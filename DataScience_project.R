@@ -2,7 +2,8 @@ install.packages("FactoMineR")
 library("FactoMineR")
 install.packages("factoextra")
 library("factoextra")
-
+install.packages("devtools") ; require(devtools) # Risque d'erreur si RTools non installé.
+devtools::install_github("Antoine-Masse/KefiR")
 
 #Question 1 
 
@@ -102,7 +103,41 @@ abline(prod_mod.regsimple, col='red')
 
 #Question 13
 # Intervalle de confiance de B1 et B2
-# 
+#
+confint(prod_mod.regsimple,level=0.99) 
+
+# intervalle de confiance B0 
+# IC(B0) = [-0.135, 0.00616], B0 estimé à -0.0646 (appartient)
+
+#intervalle de confiance B1
+# IC(B1) = [0.992, 1.18] B1 estime a 1,088 (appartient)
+
+#Interpretations
+# A un risque de dix pourcent, on peut etre sur que la valeur de B0 et de B1 se
+#situe dans ces intervalles, et cela n'est pas contredit par notre estimation
+# Autrement dit il y a un risque de moins de 10% pour que les valeurs de B0 et de 
+# B1 soient hors de ces intervalles 
+
+
+#Question 14 
+# Soit H0 l'hypothèse de pente nulle pour le coefficient B1
+# cad B1 = 0 
+
+# Soit H1 l'hypothèse H1 superieur à 0, 
+
+# 0 est assé loin d'être dans l'intervalle de confiance calculé a un risque de 10% de B1, 
+# il est dans la zone de rejet, il est donc plus judicieux de rejeter l'hypothèse
+# Même pour un test fait avec un risque d' 1% 0 n'appartient pas à l'intervalle qui est
+# [0.9370405, 1.24068128]
+
+# On conclut que B1 n'est pas significativement nul 
+
+# Question 15
+
+# Valeur du coefficent de détermination R²
+# R² vaut, c'est à dire que la productivité actuelle, est responsable,ou explique 
+# environ la moitié de la variabilité de la productivité ciblée
+
 
 
 
